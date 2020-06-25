@@ -13,10 +13,11 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "rx": "^4.1.0"
   },
   "devDependencies": {
-    "nwb": "0.25.x"
+    "nwb": "^0.25.2"
   },
   "author": "",
   "license": "MIT",
