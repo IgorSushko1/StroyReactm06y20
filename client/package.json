@@ -12,6 +12,7 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "rx": "^4.1.0"
