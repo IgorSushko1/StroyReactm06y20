@@ -1,3 +1,5 @@
+import './Sortable.css';
+
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
@@ -93,7 +95,6 @@ class Sortable extends Component {
       if (source.droppableId === 'droppable2') {
         state = { selected: items };
       }
-
       this.setState(state);
     } else {
       const result = move(

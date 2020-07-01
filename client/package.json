@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Describe client here",
   "private": true,
+  "main": "index.jsx",
   "scripts": {
     "build": "nwb build-react-app",
     "clean": "nwb clean-app",
@@ -15,10 +16,12 @@
     "@material-ui/core": "^4.10.2",
     "@material-ui/styles": "^4.10.0",
     "array-move": "^2.2.2",
+    "jsx-control-statements": "^3.2.8",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
-    "rx": "^4.1.0"
+    "rx": "^4.1.0",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "nwb": "^0.25.2"

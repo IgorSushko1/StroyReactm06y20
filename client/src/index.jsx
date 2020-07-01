@@ -2,8 +2,8 @@ import './index.css';
 
 import React from 'react';
 import { render } from 'react-dom';
-import Rx from 'rx';
+import initialData from './lessonsComponents/initial-data';
 
-import App from './components/App';
+import App from './lessonsComponents/AppLessons.jsx';
 
 render(<App />, document.querySelector('#app'));
