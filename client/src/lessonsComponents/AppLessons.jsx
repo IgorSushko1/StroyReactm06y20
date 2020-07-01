@@ -25,30 +25,36 @@ class App extends Component {
       return;
     }
 
-    const column = this.state.columns[source.droppableId];
-    // debugger;
-    const newTaskIds = Array.from(column.taskIds);
-    newTaskIds.splice(source.index, 1);
-    // newTaskIds.splice(destination.index, 0, draggableId);
+    if (source.droppableId <= destination.droppableId) {
+      const columnForDrag = this.state.columns[source.droppableId];
+      const taskIdForDrag = Array.from(columnForDrag.taskIds);
 
-    const columnD = this.state.columns[destination.droppableId];
-    // debugger;
-    const newTaskIdsD = Array.from(columnD.taskIds);
-    // newTaskIds.splice(source.index, 1);
-    newTaskIdsD.splice(destination.index, 0, draggableId);
+      const columnForDrop = this.state.columns[destination.droppableId];
+      let taskIdForDrop = Array.from(columnForDrop.taskIds);
 
-    const newColumn = { ...column, taskIds: newTaskIds };
-    const newColumnD = { ...columnD, taskIds: newTaskIdsD };
-    const newState = {
-      ...this.state,
-      columns: {
-        ...this.state.columns,
-        [newColumn.id]: newColumn,
-        [newColumnD.id]: newColumnD,
-      },
-    };
+      if (source.droppableId === destination.droppableId) {
+        taskIdForDrag.splice(source.index, 1);
+        taskIdForDrag.splice(destination.index, 0, draggableId);
+        taskIdForDrop = taskIdForDrag;
+      } else {
+        taskIdForDrag.splice(source.index, 1);
+        taskIdForDrop.splice(destination.index, 0, draggableId);
+      }
 
-    this.setState(newState);
+      const newColumnForDrag = { ...columnForDrag, taskIds: taskIdForDrag };
+      const newColumnForDrop = { ...columnForDrop, taskIds: taskIdForDrop };
+
+      const newState = {
+        ...this.state,
+        columns: {
+          ...this.state.columns,
+          [newColumnForDrag.id]: newColumnForDrag,
+          [newColumnForDrop.id]: newColumnForDrop,
+        },
+      };
+
+      this.setState(newState);
+    }
   };
 
   a = {};
