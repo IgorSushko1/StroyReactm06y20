@@ -13,6 +13,16 @@ import Column from './Column.jsx';
 
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
+
+  @media only screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+  }
+  @media only screen and (min-width: 1000px) and (max-width: 1300px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
 class App extends Component {

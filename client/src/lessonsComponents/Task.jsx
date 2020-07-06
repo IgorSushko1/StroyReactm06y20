@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import styled from 'styled-components';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -14,7 +14,9 @@ import WarningIcon from '@material-ui/icons/Warning';
 import clsx from 'clsx';
 
 const CardTask = styled(Card)({
-  backgroundColor: `${(props) => (props.isDragging ? 'lightgreen' : 'white')}`,
+  borderRadius: 3,
+  boxShadow: '0 3px 5px 2px #dadada',
+  margin: '6px 0 0 0',
 });
 
 const SimpleBadge = withStyles((theme) => ({
@@ -24,6 +26,7 @@ const SimpleBadge = withStyles((theme) => ({
     width: 'auto',
   },
 }))(Badge);
+
 const GridItem = styled(Grid)({
   padding: '20px 0 0 0',
 });
@@ -45,7 +48,7 @@ export default class Tasks extends React.Component {
             variant="outlined"
             {...provided.draggableProps}
             ref={provided.innerRef}
-            isDragging={snapshot.isDragging}
+            {...provided.dragHandleProps}
           >
             <CardContent>{this.props.task.content}</CardContent>
             <CardContent>
@@ -71,7 +74,7 @@ export default class Tasks extends React.Component {
                   12 д
                 </GridItem>
                 <Grid item xs={6} sm={2}>
-                  <Handle {...provided.dragHandleProps} />
+                  <Handle />
                 </Grid>
               </Grid>
             </CardContent>
