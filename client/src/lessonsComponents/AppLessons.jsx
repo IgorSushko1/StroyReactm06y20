@@ -11,6 +11,8 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import Column from './Column.jsx';
 
+import DropdownMenu from './DropdownMenu';
+
 const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -81,13 +83,30 @@ class App extends Component {
   render() {
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
+        <DropdownMenu
+          title={this.state.columns['column-1']['title']}
+          color={this.state.columns['column-1']['color']}
+          droppable={
+            this.state.columnOrder[0] == this.state.columns['column-1']['id']
+              ? true
+              : false
+          }
+        />
+
         <Container>
           {this.state.columnOrder.map((columnId) => {
             const column = this.state.columns[columnId];
             const tasks = column.taskIds.map(
               (taskId) => this.state.tasks[taskId]
             );
-            return <Column key={column.id} column={column} tasks={tasks} />;
+            return (
+              <Column
+                key={column.id}
+                column={column}
+                tasks={tasks}
+                firstColumnId={this.state.columnOrder[0]}
+              />
+            );
           })}
         </Container>
       </DragDropContext>

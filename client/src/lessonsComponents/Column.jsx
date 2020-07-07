@@ -10,11 +10,29 @@ import { Grid } from '@material-ui/core';
 import { CardHeader } from '@material-ui/core';
 
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import AddIcon from '@material-ui/icons/Add';
+// import AddIcon from '@material-ui/icons/Add';
+import DropdownMenu from './DropdownMenu';
+
+import clsx from 'clsx';
+import { ExpansionPanel } from '@material-ui/core';
+import { ExpansionPanelDetails } from '@material-ui/core';
+import { ExpansionPanelSummary } from '@material-ui/core';
+import { ExpansionPanelActions } from '@material-ui/core';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Chip from '@material-ui/core/Chip';
+import Button from '@material-ui/core/Button';
+import Divider from '@material-ui/core/Divider';
 
 const ColumnContainer = styled(Container)({});
+
+const ExpansionPanelAddTask = styled(ExpansionPanel)({
+  border: 'none',
+  background: '#f5f5f5',
+});
+
 const GridForHeader = styled(Grid)({
-  padding: ' 0 0 0 2% ',
+  padding: ' 0 0 0 0 ',
   border: 0,
   borderRadius: 8,
   background: '#f5f5f5',
@@ -49,21 +67,13 @@ class Column extends React.Component {
           justify="flex-start"
           alignItems="center"
         >
-          <Grid xs={12} sm={1}>
-            <FiberManualRecordIcon
-              fontSize="small"
-              style={{ color: this.props.column.color }}
-            />
-          </Grid>
-
-          <Grid xs={12} sm={8}>
-            <CardHeader title={this.props.column.title} />
-          </Grid>
-          {this.props.column.id === 'column-1' ? (
-            <Grid xs={12} sm={2}>
-              <AddIcon />
-            </Grid>
-          ) : null}
+          <DropdownMenu
+            title={this.props.column.title}
+            color={this.props.column.color}
+            droppable={
+              this.props.column.id == this.props.firstColumnId ? true : false
+            }
+          />
         </GridForHeader>
         <ColumnDroppableContainer>
           <Droppable droppableId={this.props.column.id}>
