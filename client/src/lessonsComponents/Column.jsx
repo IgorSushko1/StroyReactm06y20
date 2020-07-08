@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 import Task from './Task';
@@ -10,7 +11,7 @@ import { Grid } from '@material-ui/core';
 import { CardHeader } from '@material-ui/core';
 
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-// import AddIcon from '@material-ui/icons/Add';
+import AddIcon from '@material-ui/icons/Add';
 import DropdownMenu from './DropdownMenu';
 
 import clsx from 'clsx';
@@ -58,6 +59,7 @@ class Column extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <ColumnContainer maxWidth={'xs'}>
@@ -73,6 +75,7 @@ class Column extends React.Component {
             droppable={
               this.props.column.id == this.props.firstColumnId ? true : false
             }
+            addTask={this.props.addTask}
           />
         </GridForHeader>
         <ColumnDroppableContainer>

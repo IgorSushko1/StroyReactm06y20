@@ -17,6 +17,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
     "array-move": "^2.2.2",
+    "eslint-plugin-react-hooks": "^4.0.6",
     "jsx-control-statements": "^3.2.8",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
@@ -25,6 +26,10 @@
     "styled-components": "^5.1.1"
   },
   "devDependencies": {
+    "eslint": "^7.4.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.20.3",
     "nwb": "^0.25.2"
   },
   "author": "",

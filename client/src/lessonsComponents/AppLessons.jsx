@@ -28,6 +28,11 @@ const Container = styled.div`
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.addTask = this.addTask.bind(this);
+  }
   state = initialData;
 
   onDragEnd = (result) => {
@@ -79,11 +84,48 @@ class App extends Component {
     }
   };
 
+  addTask(taskDescription) {
+    debugger;
+    const lengthOfTask = Object.keys(this.state.tasks).length + 1;
+    const taskName = 'task-' + lengthOfTask;
+    const newTaskObj = {
+      [taskName]: {
+        id: taskName,
+        content: taskDescription,
+      },
+    };
+
+    const newColumnObj = {
+      'column-1': {
+        id: 'column-1',
+        title: 'Наряды',
+        taskIds: [...this.state.columns['column-1'].taskIds, taskName],
+        color: '#c4c8d1',
+      },
+    };
+    const newState = {
+      ...this.state,
+      columns: {
+        ...this.state.columns,
+        ...newColumnObj,
+      },
+      tasks: {
+        ...this.state.tasks,
+
+        ...newTaskObj,
+      },
+    };
+    this.setState(newState);
+  }
+
   a = {};
   render() {
+    const lenghtOfTask = Object(this.state.tasks).length;
+
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
-        <DropdownMenu
+        {/* <DropdownMenu
+          addTask={this.addTask}
           title={this.state.columns['column-1']['title']}
           color={this.state.columns['column-1']['color']}
           droppable={
@@ -91,7 +133,7 @@ class App extends Component {
               ? true
               : false
           }
-        />
+        /> */}
 
         <Container>
           {this.state.columnOrder.map((columnId) => {
@@ -105,6 +147,7 @@ class App extends Component {
                 column={column}
                 tasks={tasks}
                 firstColumnId={this.state.columnOrder[0]}
+                addTask={this.addTask}
               />
             );
           })}
