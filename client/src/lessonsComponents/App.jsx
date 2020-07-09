@@ -133,6 +133,7 @@ class App extends Component {
             );
             return (
               <Column
+                key={column.id}
                 column={column}
                 tasks={tasks}
                 firstColumnId={this.state.columnOrder[0]}
