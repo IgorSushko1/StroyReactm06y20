@@ -19,7 +19,7 @@ const CardTask = styled(Card)({
   margin: '6px 0 0 0',
 });
 
-const SimpleBadge = withStyles((theme) => ({
+const SimpleBadge = withStyles(() => ({
   badge: {
     left: 5,
     top: '50%',

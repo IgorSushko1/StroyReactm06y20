@@ -26,12 +26,12 @@ const Container = styled.div`
 class App extends Component {
   constructor(props) {
     super(props);
-
+    this.state = initialData;
     this.addTask = this.addTask.bind(this);
+    this.onDragEnd = this.onDragEnd.bind(this);
   }
-  state = initialData;
 
-  onDragEnd = (result) => {
+  onDragEnd(result) {
     document.body.style.color = 'inherit';
     document.body.style.backgroundColor = 'inherit';
 
@@ -78,7 +78,7 @@ class App extends Component {
 
       this.setState(newState);
     }
-  };
+  }
 
   addTask(newTaskData) {
     const lengthOfTask = Object.keys(this.state.tasks).length + 1;
@@ -115,10 +115,7 @@ class App extends Component {
     this.setState(newState);
   }
 
-  a = {};
   render() {
-    const lenghtOfTask = Object(this.state.tasks).length;
-
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <Container>
