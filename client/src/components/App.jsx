@@ -1,17 +1,13 @@
 import '../App.css';
 
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import initialData from './initial-data.jsx';
-import { withStyles } from '@material-ui/core/styles';
 
 import styled from 'styled-components';
 
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import Column from './Column.jsx';
-
-import DropdownMenu from './DropdownMenu';
 
 const Container = styled.div`
   display: flex;
