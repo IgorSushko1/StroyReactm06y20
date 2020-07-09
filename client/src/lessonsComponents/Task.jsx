@@ -12,7 +12,6 @@ import { CardContent } from '@material-ui/core';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import WarningIcon from '@material-ui/icons/Warning';
-import clsx from 'clsx';
 
 const CardTask = styled(Card)({
   borderRadius: 3,
@@ -44,7 +43,7 @@ export default class Tasks extends React.Component {
   render() {
     return (
       <Draggable draggableId={this.props.task.id} index={this.props.index}>
-        {(provided, snapshot) => (
+        {(provided) => (
           <CardTask
             variant="outlined"
             {...provided.draggableProps}
@@ -59,22 +58,28 @@ export default class Tasks extends React.Component {
                 justify="center"
                 alignItems="center"
               >
-                <GridItem item xs={6} sm={2}>
+                <GridItem item xs={2} sm={2}>
                   <ArrowUpwardIcon color="primary" fontSize="small" />
                 </GridItem>
-                <GridItem item xs={6} sm={2}>
-                  <SimpleBadge badgeContent={1}>
-                    <ChatBubbleOutlineIcon color="secondary" fontSize="small" />
+                <GridItem item xs={2} sm={2}>
+                  <SimpleBadge
+                    badgeContent={this.props.task.idForComments != '' ? 1 : 0}
+                  >
+                    <ChatBubbleOutlineIcon color="primary" fontSize="small" />
                   </SimpleBadge>
                 </GridItem>
 
-                <GridItem item xs={7} sm={3}>
-                  <WarningIcon color="action" fontSize="small" />
+                <GridItem item xs={3} sm={3}>
+                  <SimpleBadge
+                    badgeContent={this.props.task.idForComments != '' ? 1 : 0}
+                  >
+                    <WarningIcon style={{ color: 'orange' }} fontSize="small" />
+                  </SimpleBadge>
                 </GridItem>
-                <GridItem item xs={6} sm={3}>
-                  12 д
+                <GridItem item xs={3} sm={3}>
+                  {this.props.task.deadlineTime} д
                 </GridItem>
-                <Grid item xs={6} sm={2}>
+                <Grid item xs={2} sm={2}>
                   <Handle />
                 </Grid>
               </Grid>

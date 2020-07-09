@@ -8,29 +8,10 @@ import { Droppable } from 'react-beautiful-dnd';
 
 import { Container } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
-import { CardHeader } from '@material-ui/core';
 
-import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
-import AddIcon from '@material-ui/icons/Add';
 import DropdownMenu from './DropdownMenu';
 
-import clsx from 'clsx';
-import { ExpansionPanel } from '@material-ui/core';
-import { ExpansionPanelDetails } from '@material-ui/core';
-import { ExpansionPanelSummary } from '@material-ui/core';
-import { ExpansionPanelActions } from '@material-ui/core';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Chip from '@material-ui/core/Chip';
-import Button from '@material-ui/core/Button';
-import Divider from '@material-ui/core/Divider';
-
 const ColumnContainer = styled(Container)({});
-
-const ExpansionPanelAddTask = styled(ExpansionPanel)({
-  border: 'none',
-  background: '#f5f5f5',
-});
 
 const GridForHeader = styled(Grid)({
   padding: ' 0 0 0 0 ',
@@ -87,7 +68,7 @@ class Column extends React.Component {
                 isDraggingOver={snapshot.isDraggingOver}
               >
                 {this.props.tasks.map((task, index) => (
-                  <Task key={task.id} task={task} index={index} />
+                  <Task key={this.props.column.id} task={task} index={index} />
                 ))}
                 {provided.placeholder}
               </TaskList>

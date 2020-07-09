@@ -3,30 +3,44 @@ const initialData = {
     'task-1': {
       id: 'task-1',
       content: 'Сделать выемку грунта под фундаменты',
+      deadlineTime: 3,
+      idForComments: '',
     },
     'task-2': {
       id: 'task-2',
       content: 'Сделать гравийную подготовку под фундаменты',
+      deadlineTime: 2,
+      idForComments: '',
     },
     'task-3': {
       id: 'task-3',
       content: 'Сделать песчаную подготовку под фундаменты',
+      deadlineTime: 2,
+      idForComments: '',
     },
     'task-4': {
       id: 'task-4',
       content: 'Сделать гидроизоцию подошвы фундамента',
+      deadlineTime: 2,
+      idForComments: '',
     },
     'task-5': {
       id: 'task-5',
       content: 'Установить блоки фундамента',
+      deadlineTime: 4,
+      idForComments: '',
     },
     'task-6': {
       id: 'task-6',
       content: 'Выполнить обмазочную гидроизоляцию битумом на два раза',
+      deadlineTime: 3,
+      idForComments: 'rtrt',
     },
     'task-7': {
       id: 'task-7',
       content: 'Закрыть фундаменты защитной мембраной',
+      deadlineTime: 1,
+      idForComments: '',
     },
   },
   columns: {

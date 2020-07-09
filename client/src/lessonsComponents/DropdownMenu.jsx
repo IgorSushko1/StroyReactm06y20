@@ -1,22 +1,17 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useCallback } from 'react';
-import { Container } from '@material-ui/core';
-import { Grid } from '@material-ui/core';
+import React, { useState } from 'react';
+
 import { ExpansionPanel } from '@material-ui/core';
 import { ExpansionPanelDetails } from '@material-ui/core';
 import { ExpansionPanelSummary } from '@material-ui/core';
-import { ExpansionPanelActions } from '@material-ui/core';
 
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 
-import {
-  makeStyles,
-  ThemeProvider,
-  createMuiTheme,
-} from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import newTheme from './Theme';
+
 import AddIcon from '@material-ui/icons/Add';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
@@ -69,7 +64,7 @@ export default function DropdownMenu(props) {
   const [date, setDate] = useState(1);
 
   const addTask = () => {
-    props.addTask(task);
+    props.addTask({ task: task, date: date });
   };
 
   return (
@@ -116,7 +111,7 @@ export default function DropdownMenu(props) {
             />
             <TextField
               id="date"
-              label="Срок выполнения работ"
+              label="Срок выполнения работ (в днях)"
               type="number"
               name="date"
               value={date}
